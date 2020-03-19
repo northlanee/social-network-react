@@ -1,0 +1,25 @@
+.header {
+    background-color: #ed7000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.inner {
+    width: 96rem;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.logo {
+    max-height: 5rem;
+    margin-right: 1rem;
+}
+
+.label {
+    font-size: 2rem;
+    font-weight: 700;
+    color: white;
+}

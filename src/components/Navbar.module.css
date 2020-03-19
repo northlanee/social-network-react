@@ -1,0 +1,22 @@
+.navbar {
+    width: 25rem;
+    background-color: white;
+    margin-right: 1rem;
+    padding: 1rem;
+    min-height: 90vh;
+}
+
+.list {
+    list-style: none;
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 1rem;
+}
+
+.link:hover {
+    background-color: aliceblue;
+}

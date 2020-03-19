@@ -1,8 +1,10 @@
 import React from 'react';
 
+import s from './Profile.module.css';
+
 const Profile = () => {
     return (
-        <main className="profile">
+        <main className={s.profile}>
             <div className="user">
                 <div className="user-image">User Image</div>
                 <div className="user-info">User Info</div>

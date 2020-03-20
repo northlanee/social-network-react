@@ -11,8 +11,8 @@ const Posts = () => {
             <h2>My posts</h2>
             <NewPost/>
             <ul className={s.postsList}>
-                <li><Post/></li>
-                <li><Post/></li>
+                <li><Post message="Hi, how are you?" /></li>
+                <li><Post message="Do you learn React?" /></li>
             </ul>
         </div>
     )

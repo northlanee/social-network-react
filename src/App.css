@@ -23,3 +23,9 @@ body {
     margin: 0 auto;
     margin-top: 6rem;
 }
+
+.main {
+    width: 70rem;
+    background-color: white;
+    padding: 1rem;
+}

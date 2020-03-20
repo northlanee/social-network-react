@@ -7,11 +7,11 @@ import User from "./User/User";
 
 const Profile = () => {
     return (
-        <main className={s.profile}>
+        <div className={s.profile}>
             <h1>UserName</h1>
             <User/>
             <Posts/>
-        </main>
+        </div>
     );
 };
 

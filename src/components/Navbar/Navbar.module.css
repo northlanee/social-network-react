@@ -17,6 +17,10 @@
     padding: 1rem;
 }
 
+a.active {
+    border-bottom: 1px solid slategrey;
+}
+
 .link:hover {
     background-color: aliceblue;
 }

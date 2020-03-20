@@ -1,0 +1,16 @@
+.user {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.poster {
+    width: 20rem;
+    margin-right: 1rem;
+
+}
+.poster img {
+    overflow: hidden;
+    width: 100%;
+    height: 20rem;
+    border-radius: 100%;
+}

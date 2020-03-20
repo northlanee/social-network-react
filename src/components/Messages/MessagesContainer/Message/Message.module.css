@@ -1,0 +1,32 @@
+.message {
+    display: flex;
+}
+
+.userpic {
+    width: 5rem;
+    border-radius: 100%;
+    margin-right: 2rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 0.5rem;
+}
+
+.author {
+    font-weight: 700;
+    display: block;
+    margin-right: 1rem;
+}
+
+.time {
+    display: block;
+    font-size: 1.4rem;
+    color: slategrey;
+}

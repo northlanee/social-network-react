@@ -1,0 +1,12 @@
+.messages {
+    display: flex;
+    flex-direction: row;
+}
+
+.messagesContent {
+    width: 70%;
+}
+
+.dialogs {
+
+}

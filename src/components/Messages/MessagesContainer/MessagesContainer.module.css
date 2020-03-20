@@ -1,0 +1,15 @@
+.container {
+    width: 70%;
+}
+
+.messagesList {
+    list-style: none;
+}
+
+.messagesListItem {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #bcd4ea;
+    padding-bottom: 0.5rem;
+    margin-right: 1rem;
+}
+

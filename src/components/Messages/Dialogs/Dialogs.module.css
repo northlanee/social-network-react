@@ -1,7 +1,17 @@
 .dialogs {
-
+    flex-grow: 1;
 }
 
 .dialogsList {
     list-style: none;
+}
+
+.dialogsListItem {
+    padding: 1rem;
+    border-bottom: 1px solid gainsboro;
+    cursor: pointer;
+}
+
+.dialogsListItem:hover {
+    background-color: #eff1ef;
 }

@@ -4,11 +4,11 @@ import s from './Messages.module.css';
 import MessagesContainer from "./MessagesContainer/MessagesContainer";
 import Dialogs from "./Dialogs/Dialogs";
 
-const Messages = () => {
+const Messages = ({data}) => {
     return (
         <div className={s.messages}>
-            <MessagesContainer/>
-            <Dialogs/>
+            <MessagesContainer messages={data.messages}/>
+            <Dialogs dialogs={data.dialogs}/>
         </div>
     )
 };

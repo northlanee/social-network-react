@@ -5,23 +5,9 @@ import s from './Posts.module.css';
 import Post from "./Post/Post";
 import NewPost from "./NewPost/NewPost";
 
-const Posts = () => {
-    const postsData = [
-        {
-            id: 1,
-            username: 'Username',
-            date: '20 March, 2020',
-            message: 'Hi, how are you?'
-        },
-        {
-            id: 2,
-            username: 'Username',
-            date: '20 March, 2020',
-            message: 'Do you learn React?'
-        }
-    ];
+const Posts = ({data}) => {
 
-    let postsElements = postsData.map(
+    let postsElements = data.map(
         d => <li key={d.id}><Post username={d.username} date={d.date} message={d.message} /></li>
     );
 

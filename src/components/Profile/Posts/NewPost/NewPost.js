@@ -2,18 +2,16 @@ import React from "react";
 
 import s from './NewPost.module.css';
 
-const NewPost = ({addPost}) => {
+const NewPost = ({addPost, newPostValue, newPostChange}) => {
 
-    let newPostRef = React.createRef();
-
-    const addPostHandler = () => {
-        addPost(newPostRef.current.value);
+    const newPostChangeHandler = e => {
+        newPostChange(e.target.value);
     };
 
     return (
         <div className={s.newPost}>
-            <textarea ref={newPostRef} className={s.postField} cols="60" rows="3" />
-            <button onClick={ addPostHandler } type="button" className={s.sumbit}>Submit</button>
+            <textarea onChange={ newPostChangeHandler } value={ newPostValue } className={s.postField} cols="60" rows="3" />
+            <button onClick={ addPost } type="button" className={s.sumbit}>Submit</button>
         </div>
     );
 };

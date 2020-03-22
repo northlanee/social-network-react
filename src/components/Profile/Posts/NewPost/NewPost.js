@@ -2,11 +2,12 @@ import React from "react";
 
 import s from './NewPost.module.css';
 
-const NewPost = ({addPost, newPostValue, newPostChange}) => {
+const NewPost = ({store}) => {
 
-    const newPostChangeHandler = e => {
-        newPostChange(e.target.value);
-    };
+    const newPostValue = store.getState().postsData.newPostValue;
+
+    const newPostChangeHandler = e => store.newPostChange(e.target.value);
+    const addPost = () => store.addPostHandler();
 
     return (
         <div className={s.newPost}>

@@ -3,7 +3,9 @@ import React from "react";
 import s from "./MessagesContainer.module.css";
 import Message from "./Message/Message";
 
-const MessagesContainer = ({messages}) => {
+const MessagesContainer = ({store}) => {
+
+    const messages = store.getState().messagesData.messages;
 
     let messagesElements = messages.map(d => {
         return (

@@ -6,7 +6,6 @@ import Posts from "./Posts/Posts";
 import User from "./User/User";
 
 const Profile = ({data, addPost}) => {
-    debugger;
     return (
         <div className={s.profile}>
             <h1>UserName</h1>

@@ -1,8 +1,10 @@
+import {renderApp} from "../render";
+
 const state = {
 
     postsData: [
-        { id: 1, username: 'Username', date: '20.03.2020', message: 'Hi, how are you?' },
-        { id: 2, username: 'Username', date: '20.03.2020', message: 'Do you learn React?' }
+        { id: 1, username: 'Username', date: '20.3.2020', message: 'Hi, how are you?' },
+        { id: 2, username: 'Username', date: '20.3.2020', message: 'Do you learn React?' }
     ],
 
     messagesData: {
@@ -29,6 +31,7 @@ export const addPostHandler = postMessage => {
         message: postMessage
     };
     state.postsData.push(newPost);
+    renderApp(state);
 };
 
 export default state;

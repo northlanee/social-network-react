@@ -5,7 +5,7 @@ import s from './Posts.module.css';
 import Post from "./Post/Post";
 import NewPost from "./NewPost/NewPost";
 
-const Posts = ({data}) => {
+const Posts = ({data, addPost}) => {
 
     let postsElements = data.map(
         d => <li key={d.id}><Post username={d.username} date={d.date} message={d.message} /></li>
@@ -14,7 +14,7 @@ const Posts = ({data}) => {
     return (
         <div className="posts">
             <h2>My posts</h2>
-            <NewPost/>
+            <NewPost addPost={addPost} />
             <ul className={s.postsList}>
                 { postsElements }
             </ul>

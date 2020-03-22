@@ -5,12 +5,13 @@ import s from './Profile.module.css';
 import Posts from "./Posts/Posts";
 import User from "./User/User";
 
-const Profile = ({data}) => {
+const Profile = ({data, addPost}) => {
+    debugger;
     return (
         <div className={s.profile}>
             <h1>UserName</h1>
             <User/>
-            <Posts data={data}/>
+            <Posts data={data} addPost={addPost} />
         </div>
     );
 };

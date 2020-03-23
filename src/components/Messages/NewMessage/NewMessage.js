@@ -1,7 +1,7 @@
 import React from "react";
 
 import s from "./NewMessage.module.css";
-import {addMessageActionCreator, updateMessageChangeActionCreator} from "../../../redux-parody/messages-reducer";
+import {addMessageActionCreator, updateMessageChangeActionCreator} from "../../../redux/messages-reducer";
 
 const NewMessage = ({state, dispatch}) => {
 

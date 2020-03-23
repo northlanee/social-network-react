@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import App from "./App";
-import store from "./redux-parody/store";
+import store from "./redux/store";
 
-const renderApp = (state, dispatch) => {
-    ReactDOM.render(<App state={state} dispatch={dispatch.bind(store)} />, document.getElementById('root'));
+const renderApp = (state) => {
+    ReactDOM.render(<App state={state} dispatch={store.dispatch} />, document.getElementById('root'));
 };
 
-store.subscribe(renderApp);
+store.subscribe(() => {
+    renderApp(store.getState());
+});
 
-renderApp(store.getState(), store.dispatch);
+renderApp(store.getState());

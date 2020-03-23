@@ -16,7 +16,7 @@ const MessagesWrapper = ({state}) => {
                 />
             </li>
         );
-    });
+    }).reverse();
 
     return (
         <div className={s.container}>

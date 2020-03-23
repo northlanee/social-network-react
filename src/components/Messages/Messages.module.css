@@ -4,8 +4,9 @@
     align-items: flex-start;
 }
 
-.messagesContent {
+.messagesContainer {
     width: 70%;
+    margin-right: 1rem;
 }
 
 .dialogs {

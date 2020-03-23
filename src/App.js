@@ -18,7 +18,7 @@ const App = ({state, dispatch}) => {
                     <main className="main">
                         <Route
                             path="/messages"
-                            render={() => <Messages state={state.messagesData}/>}
+                            render={() => <Messages state={state.messagesData} dispatch={dispatch} />}
                         />
                         <Route
                             exact

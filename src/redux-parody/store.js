@@ -1,3 +1,6 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+
 const store = {
 
     _state: {
@@ -39,7 +42,7 @@ const store = {
 
     dispatch(action) {
 
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             const d = new Date();
             const newPost = {
                 id: 3,
@@ -51,13 +54,26 @@ const store = {
             this._state.postsData.newPostValue = '';
             this._callSubscriber(this._state, this.dispatch);
 
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.postsData.newPostValue = action.newText;
             this._callSubscriber(this._state, this.dispatch);
 
         }
     }
 
+};
+
+export const aadPostActionCreator = () => {
+    return {
+        type: ADD_POST
+    }
+};
+
+export const updateNewPostTextActionCreator = (text) => {
+    return {
+        type: UPDATE_NEW_POST_TEXT,
+        newText: text
+    }
 };
 
 export default store;

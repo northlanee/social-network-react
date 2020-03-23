@@ -2,10 +2,12 @@ import React from "react";
 
 import s from './NewPost.module.css';
 
+import {aadPostActionCreator, updateNewPostTextActionCreator} from "../../../../redux-parody/store";
+
 const NewPost = ({state, dispatch}) => {
 
-    const newPostChangeHandler = e => dispatch({ type: 'UPDATE-NEW-POST-TEXT', newText: e.target.value});
-    const addPost = () => dispatch({ type: 'ADD-POST' });
+    const newPostChangeHandler = e => dispatch(updateNewPostTextActionCreator(e.target.value));
+    const addPost = () => dispatch(aadPostActionCreator());
 
     return (
         <div className={s.newPost}>

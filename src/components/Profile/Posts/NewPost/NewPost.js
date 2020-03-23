@@ -2,7 +2,7 @@ import React from "react";
 
 import s from './NewPost.module.css';
 
-import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../../redux-parody/store";
+import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../../redux-parody/posts-reducer";
 
 const NewPost = ({state, dispatch}) => {
 

@@ -1,7 +1,5 @@
-const ADD_POST = 'ADD-POST';
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const MESSAGE_CHANGE = 'MESSAGE-CHANGE';
+import postsReducer from "./posts-reducer";
+import messagesReducer from "./messages-reducer";
 
 const store = {
 
@@ -44,67 +42,11 @@ const store = {
     },
 
     dispatch(action) {
-
-        if (action.type === ADD_POST) {
-            const d = new Date();
-            const newPost = {
-                id: 3,
-                username: 'Username',
-                date: `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`,
-                message: this._state.postsData.newPostValue
-            };
-            this._state.postsData.posts.push(newPost);
-            this._state.postsData.newPostValue = '';
-            this._callSubscriber(this._state, this.dispatch);
-
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.postsData.newPostValue = action.newText;
-            this._callSubscriber(this._state, this.dispatch);
-
-        } else if (action.type === MESSAGE_CHANGE) {
-            this._state.messagesData.newMessageValue = action.newText;
-            this._callSubscriber(this._state, this.dispatch);
-        } else if (action.type === ADD_MESSAGE) {
-            const d = new Date();
-            const newMessage = {
-                id: 4,
-                username: 'You',
-                time: `${d.getHours()}:${d.getMinutes()}`,
-                date: `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`,
-                message: this._state.messagesData.newMessageValue
-            };
-            this._state.messagesData.messages.push(newMessage);
-            this._state.messagesData.newMessageValue = '';
-            this._callSubscriber(this._state, this.dispatch);
-        }
+        postsReducer(this._state.postsData, action);
+        messagesReducer(this._state.messagesData, action);
+        this._callSubscriber(this._state, this.dispatch);
     }
 
-};
-
-export const addPostActionCreator = () => {
-    return {
-        type: ADD_POST
-    }
-};
-
-export const updateNewPostTextActionCreator = (text) => {
-    return {
-        type: UPDATE_NEW_POST_TEXT,
-        newText: text
-    }
-};
-
-export const addMessageActionCreator = () => {
-    return {
-        type: ADD_MESSAGE
-    }
-};
-
-export const updateMessageChangeActionCreator = (text) => {
-    return {
-        type: MESSAGE_CHANGE,
-        newText: text
-    }
 };
 
 export default store;

@@ -5,12 +5,12 @@ import s from './Profile.module.css';
 import Posts from "./Posts/Posts";
 import User from "./User/User";
 
-const Profile = ({store}) => {
+const Profile = ({state, dispatch}) => {
     return (
         <div className={s.profile}>
             <h1>UserName</h1>
             <User/>
-            <Posts store={store} />
+            <Posts state={state} dispatch={dispatch} />
         </div>
     );
 };

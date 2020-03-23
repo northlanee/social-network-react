@@ -25,34 +25,37 @@ const store = {
 
     },
 
-    getState() {
-        return this._state;
-    },
-
     _callSubscriber() {
         console.log('State changed');
+    },
+
+    getState() {
+        return this._state;
     },
 
     subscribe(observer) {
         this._callSubscriber = observer;
     },
 
-    addPostHandler() {
-        const d = new Date();
-        const newPost = {
-            id: 3,
-            username: 'Username',
-            date: `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`,
-            message: this._state.postsData.newPostValue
-        };
-        this._state.postsData.posts.push(newPost);
-        this._state.postsData.newPostValue = '';
-        this._callSubscriber(this);
-    },
+    dispatch(action) {
 
-    newPostChange(newText) {
-        this._state.postsData.newPostValue = newText;
-        this._callSubscriber(this);
+        if (action.type === 'ADD-POST') {
+            const d = new Date();
+            const newPost = {
+                id: 3,
+                username: 'Username',
+                date: `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`,
+                message: this._state.postsData.newPostValue
+            };
+            this._state.postsData.posts.push(newPost);
+            this._state.postsData.newPostValue = '';
+            this._callSubscriber(this._state, this.dispatch);
+
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._state.postsData.newPostValue = action.newText;
+            this._callSubscriber(this._state, this.dispatch);
+
+        }
     }
 
 };

@@ -1,13 +1,11 @@
 import React from "react";
 
-import s from "./MessagesContainer.module.css";
+import s from "./MessagesWrapper.module.css";
 import Message from "./Message/Message";
 
-const MessagesContainer = ({store}) => {
+const MessagesWrapper = ({state}) => {
 
-    const messages = store.getState().messagesData.messages;
-
-    let messagesElements = messages.map(d => {
+    let messagesElements = state.messages.map(d => {
         return (
             <li key={d.id} className={s.messagesListItem}>
                 <Message
@@ -29,4 +27,4 @@ const MessagesContainer = ({store}) => {
     )
 };
 
-export default MessagesContainer;
+export default MessagesWrapper;

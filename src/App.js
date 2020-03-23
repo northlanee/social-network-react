@@ -8,7 +8,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Messages from "./components/Messages/Messages";
 
-const App = ({store}) => {
+const App = ({state, dispatch}) => {
     return (
         <BrowserRouter>
             <div className="App">
@@ -18,12 +18,12 @@ const App = ({store}) => {
                     <main className="main">
                         <Route
                             path="/messages"
-                            render={() => <Messages store={store}/>}
+                            render={() => <Messages state={state.messagesData}/>}
                         />
                         <Route
                             exact
                             path="/profile"
-                            render={() => <Profile store={store} />}
+                            render={() => <Profile state={state.postsData} dispatch={dispatch} />}
                         />
                     </main>
                 </div>

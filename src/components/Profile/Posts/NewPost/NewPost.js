@@ -2,16 +2,14 @@ import React from "react";
 
 import s from './NewPost.module.css';
 
-const NewPost = ({store}) => {
+const NewPost = ({state, dispatch}) => {
 
-    const newPostValue = store.getState().postsData.newPostValue;
-
-    const newPostChangeHandler = e => store.newPostChange(e.target.value);
-    const addPost = () => store.addPostHandler();
+    const newPostChangeHandler = e => dispatch({ type: 'UPDATE-NEW-POST-TEXT', newText: e.target.value});
+    const addPost = () => dispatch({ type: 'ADD-POST' });
 
     return (
         <div className={s.newPost}>
-            <textarea onChange={ newPostChangeHandler } value={ newPostValue } className={s.postField} cols="60" rows="3" />
+            <textarea onChange={ newPostChangeHandler } value={ state.newPostValue } className={s.postField} cols="60" rows="3" />
             <button onClick={ addPost } type="button" className={s.sumbit}>Submit</button>
         </div>
     );

@@ -1,14 +1,14 @@
 import React from "react";
 
 import s from './Messages.module.css';
-import MessagesContainer from "./MessagesContainer/MessagesContainer";
+import MessagesWrapper from "./MessagesWrapper/MessagesWrapper";
 import Dialogs from "./Dialogs/Dialogs";
 
-const Messages = ({store}) => {
+const Messages = ({state}) => {
     return (
         <div className={s.messages}>
-            <MessagesContainer store={store}/>
-            <Dialogs store={store}/>
+            <MessagesWrapper state={state}/>
+            <Dialogs state={state}/>
         </div>
     )
 };

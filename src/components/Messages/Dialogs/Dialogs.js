@@ -1,11 +1,9 @@
 import React from "react";
 import s from "./Dialogs.module.css";
 
-const Dialogs = ({store}) => {
+const Dialogs = ({state}) => {
 
-    const dialogs = store.getState().messagesData.dialogs;
-
-    let dialogsElements = dialogs.map(
+    let dialogsElements = state.dialogs.map(
         d => <li key={d.id} className={s.dialogsListItem}>{d.name} <b>({d.new})</b></li>
     );
 

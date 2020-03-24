@@ -8,8 +8,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import Messages from "./components/Messages/Messages";
 
-const App = ({state, dispatch}) => {
-    debugger;
+const App = ({store}) => {
     return (
         <BrowserRouter>
             <div className="App">
@@ -19,12 +18,12 @@ const App = ({state, dispatch}) => {
                     <main className="main">
                         <Route
                             path="/messages"
-                            render={() => <Messages state={state.messagesReducer} dispatch={dispatch} />}
+                            render={() => <Messages store={store} />}
                         />
                         <Route
                             exact
                             path="/profile"
-                            render={() => <Profile state={state.postsReducer} dispatch={dispatch} />}
+                            render={() => <Profile store={store} />}
                         />
                     </main>
                 </div>

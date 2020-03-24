@@ -3,12 +3,12 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import store from "./redux/store";
 
-const renderApp = (state) => {
-    ReactDOM.render(<App state={state} dispatch={store.dispatch} />, document.getElementById('root'));
+const renderApp = (store) => {
+    ReactDOM.render(<App store={store} />, document.getElementById('root'));
 };
 
 store.subscribe(() => {
-    renderApp(store.getState());
+    renderApp(store);
 });
 
-renderApp(store.getState());
+renderApp(store);

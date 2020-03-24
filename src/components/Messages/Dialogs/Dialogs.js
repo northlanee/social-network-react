@@ -1,9 +1,12 @@
 import React from "react";
 import s from "./Dialogs.module.css";
 
-const Dialogs = ({state}) => {
+const Dialogs = ({store}) => {
 
-    let dialogsElements = state.dialogs.map(
+    const state = store.getState();
+    const dialogs = state.messagesReducer.dialogs;
+
+    let dialogsElements = dialogs.map(
         d => <li key={d.id} className={s.dialogsListItem}>{d.name} <b>({d.new})</b></li>
     );
 

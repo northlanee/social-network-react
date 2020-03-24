@@ -3,18 +3,21 @@ import React from "react";
 import s from './Posts.module.css';
 
 import Post from "./Post/Post";
-import NewPost from "./NewPost/NewPost";
+import NewPostContainer from "./NewPost/NewPostContainer";
 
-const Posts = ({state, dispatch}) => {
+const Posts = ({store}) => {
 
-    let postsElements = state.posts.map(
+    const state = store.getState();
+    const posts = state.postsReducer.posts;
+
+    let postsElements = posts.map(
         d => <li key={d.id}><Post username={d.username} date={d.date} message={d.message} /></li>
     );
 
     return (
         <div className="posts">
             <h2>My posts</h2>
-            <NewPost state={state} dispatch={dispatch} />
+            <NewPostContainer store={store} />
             <ul className={s.postsList}>
                 { postsElements }
             </ul>

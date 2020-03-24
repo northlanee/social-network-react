@@ -2,7 +2,7 @@ import React from "react";
 
 import s from './NewPost.module.css';
 
-const NewPost = ({newPostChange, newPostValue, addPost}) => {
+const NewPost = ({newPostValue, newPostChange, addPost}) => {
 
     const newPostOnChange = (e) => newPostChange(e.target.value);
     const addPostOnClick = () => addPost();

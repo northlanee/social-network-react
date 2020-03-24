@@ -7,4 +7,5 @@ import {BrowserRouter} from "react-router-dom";
 ReactDOM.render(
     <BrowserRouter>
         <App store={store} />
-    </BrowserRouter>, document.getElementById('root'));
+    </BrowserRouter>, document.getElementById('root')
+);

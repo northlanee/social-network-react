@@ -11,8 +11,11 @@ const initialState = {
 
 const postsReducer = (state = initialState, action) => {
 
+    const stateCopy = {...state};
+
     switch (action.type) {
         case ADD_POST:
+            stateCopy.posts = [...state.posts];
             const d = new Date();
             const newPost = {
                 id: 3,
@@ -20,15 +23,15 @@ const postsReducer = (state = initialState, action) => {
                 date: `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`,
                 message: state.newPostValue
             };
-            state.posts.push(newPost);
-            state.newPostValue = '';
+            stateCopy.posts.push(newPost);
+            stateCopy.newPostValue = '';
             break;
         case UPDATE_NEW_POST_TEXT:
-            state.newPostValue = action.newText;
+            stateCopy.newPostValue = action.newText;
             break;
     }
 
-    return state;
+    return stateCopy;
 };
 
 export const addPostActionCreator = () => {

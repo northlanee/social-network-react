@@ -3,11 +3,9 @@ import React from "react";
 import s from "./MessagesWrapper.module.css";
 import Message from "./Message/Message";
 
-const MessagesWrapper = ({store}) => {
+const MessagesWrapper = ({messages}) => {
 
-    const state = store.getState();
-    const messages = state.messagesReducer.messages;
-
+    debugger;
     let messagesElements = messages.map(d => {
         return (
             <li key={d.id} className={s.messagesListItem}>

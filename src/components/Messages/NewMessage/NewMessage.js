@@ -2,7 +2,7 @@ import React from "react";
 
 import s from "./NewMessage.module.css";
 
-const NewMessage = ({messageChange, newMessageValue, addMessage}) => {
+const NewMessage = ({newMessageValue, messageChange, addMessage}) => {
 
     const messageOnChange = e => messageChange(e.target.value);
     const addMessageOnClick = () => addMessage();

@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
-import Messages from "./components/Messages/Messages";
+import MessagesContainer from "./components/Messages/MessagesContainer";
 
 const App = ({store}) => {
     return (
@@ -17,15 +17,8 @@ const App = ({store}) => {
                 <div className="content">
                     <Navbar/>
                     <main className="main">
-                        <Route
-                            path="/messages"
-                            render={() => <Messages store={store} />}
-                        />
-                        <Route
-                            exact
-                            path="/profile"
-                            render={() => <Profile store={store} />}
-                        />
+                        <Route path="/messages" render={() => <MessagesContainer />} />
+                        <Route exact path="/profile" render={() => <Profile />} />
                     </main>
                 </div>
             </div>

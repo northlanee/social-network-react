@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 
-import {BrowserRouter, Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
@@ -10,7 +11,7 @@ import Messages from "./components/Messages/Messages";
 
 const App = ({store}) => {
     return (
-        <BrowserRouter>
+        <Provider store={store}>
             <div className="App">
                 <Header/>
                 <div className="content">
@@ -28,7 +29,7 @@ const App = ({store}) => {
                     </main>
                 </div>
             </div>
-        </BrowserRouter>
+        </Provider>
     );
 };
 

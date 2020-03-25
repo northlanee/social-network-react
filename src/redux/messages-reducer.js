@@ -17,14 +17,13 @@ const initialState = {
 
 const messagesReducer = (state = initialState, action) => {
 
-    const stateCopy = {...state};
-
     switch (action.type) {
         case MESSAGE_CHANGE:
-            stateCopy.newMessageValue = action.newText;
-            break;
+            return {
+                ...state,
+                newMessageValue: action.newText
+            };
         case ADD_MESSAGE:
-            stateCopy.messages = [...state.messages];
             const d = new Date();
             const newMessage = {
                 id: 4,
@@ -33,12 +32,15 @@ const messagesReducer = (state = initialState, action) => {
                 date: `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`,
                 message: state.newMessageValue
             };
-            stateCopy.messages.push(newMessage);
-            stateCopy.newMessageValue = '';
-            break;
+            return {
+                ...state,
+                messages: [...state.messages, newMessage],
+                newMessageValue: ''
+            };
+        default:
+            return state;
     }
 
-    return stateCopy;
 };
 
 export const addMessageActionCreator = () => {

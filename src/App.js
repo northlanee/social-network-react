@@ -8,6 +8,7 @@ import Header from "./components/Header/Header";
 import Navbar from "./components/Navbar/Navbar";
 import Profile from "./components/Profile/Profile";
 import MessagesContainer from "./components/Messages/MessagesContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 const App = ({store}) => {
     return (
@@ -17,8 +18,9 @@ const App = ({store}) => {
                 <div className="content">
                     <Navbar/>
                     <main className="main">
-                        <Route path="/messages" render={() => <MessagesContainer />} />
-                        <Route exact path="/profile" render={() => <Profile />} />
+                        <Route path="/messages" render={ () => <MessagesContainer /> } />
+                        <Route path="/people" render={ () => <UsersContainer /> } />
+                        <Route exact path="/profile" render={ () => <Profile /> } />
                     </main>
                 </div>
             </div>

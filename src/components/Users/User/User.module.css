@@ -22,11 +22,14 @@
     margin-bottom: 1rem;
 }
 
-.follow {
+.fButton {
     background-color: #ed7000;
     border: none;
     padding: 1rem 3rem;
     border-radius: 0.3rem;
     color: white;
     cursor: pointer;
+}
+.unfollow {
+    background-color: #d6000f;
 }

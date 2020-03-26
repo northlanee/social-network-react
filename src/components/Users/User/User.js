@@ -10,8 +10,8 @@ const User = ({user, follow, unfollow}) => {
     const unfollowOnClick = () => unfollow(user.id);
 
     const followButton = user.followed
-                        ? <button onClick={unfollowOnClick} className={s.follow}>Unfollow</button>
-                        : <button onClick={followOnClick} className={s.follow}>Follow</button>;
+                        ? <button onClick={unfollowOnClick} className={`${s.fButton} ${s.unfollow}`}>Unfollow</button>
+                        : <button onClick={followOnClick} className={`${s.fButton} ${s.follow}`}>Follow</button>;
 
     return (
         <div className={s.user}>
@@ -21,7 +21,11 @@ const User = ({user, follow, unfollow}) => {
                     {followButton}
                 </div>
             </div>
-            <div className={s.main}>{user.userName}</div>
+            <div className={s.main}>
+                <b>{user.name}</b><br/>
+                Status: {user.status}<br/>
+                Location: {'user.location.city'}, {'user.location.country'}
+            </div>
         </div>
     )
 };

@@ -2,17 +2,28 @@ import React from "react";
 
 import s from './Users.module.css';
 import User from "./User/User";
+import axios from "axios";
 
-const Users = ({users, follow, unfollow}) => {
+class Users extends React.Component {
 
-    const usersList = users.map(user => {
-        return <User user={user} follow={follow} unfollow={unfollow} />
-    });
+    componentDidMount() {
+        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+            this.props.setUsers(response.data.items);
+        });
+    }
 
-    return (
-        <div>{usersList}</div>
-    );
+    render() {
+        const usersList = this.props.users.map(user => {
+            return <User key={user.id} user={user} follow={this.props.follow} unfollow={this.props.unfollow} />
+        });
 
-};
+        return (
+            <div>
+                {usersList}
+            </div>
+        )
+    }
+
+}
 
 export default Users;

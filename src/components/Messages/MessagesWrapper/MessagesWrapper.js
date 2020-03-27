@@ -5,7 +5,6 @@ import Message from "./Message/Message";
 
 const MessagesWrapper = ({messages}) => {
 
-    debugger;
     let messagesElements = messages.map(d => {
         return (
             <li key={d.id} className={s.messagesListItem}>

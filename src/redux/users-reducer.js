@@ -7,7 +7,7 @@ const SET_FETCHING = 'SET_FETCHING';
 
 const initialState = {
     usersList: [],
-    pageSize: 8,
+    pageSize: 5,
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: true

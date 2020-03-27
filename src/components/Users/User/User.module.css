@@ -19,6 +19,7 @@
 
 .userpicContainer img {
     max-width: 100%;
+    margin: 0 auto;
     margin-bottom: 1rem;
 }
 
@@ -32,4 +33,8 @@
 }
 .unfollow {
     background-color: #d6000f;
+}
+
+.profileLink {
+    color: #575757;
 }

@@ -1,15 +1,17 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const SET_PROFILE_INFO = 'SET_PROFILE_INFO';
 
 const initialState = {
     posts: [
         { id: 1, username: 'Username', date: '20.3.2020', message: 'Hi, how are you?' },
         { id: 2, username: 'Username', date: '20.3.2020', message: 'Do you learn React?' }
     ],
-    newPostValue: ''
+    newPostValue: '',
+    profile: null
 };
 
-const postsReducer = (state = initialState, action) => {
+const profileReducer = (state = initialState, action) => {
 
     switch (action.type) {
         case ADD_POST:
@@ -30,23 +32,19 @@ const postsReducer = (state = initialState, action) => {
                 ...state,
                 newPostValue: action.newText
             };
+        case SET_PROFILE_INFO:
+            return {
+                ...state,
+                profile: action.profile
+            };
         default:
             return state;
     }
 
 };
 
-export const addPostActionCreator = () => {
-    return {
-        type: ADD_POST
-    }
-};
+export const addPostActionCreator = () => ({type: ADD_POST});
+export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
+export const setProfileInfo = (profile) => ({type: SET_PROFILE_INFO, profile});
 
-export const updateNewPostTextActionCreator = (text) => {
-    return {
-        type: UPDATE_NEW_POST_TEXT,
-        newText: text
-    }
-};
-
-export default postsReducer;
+export default profileReducer;

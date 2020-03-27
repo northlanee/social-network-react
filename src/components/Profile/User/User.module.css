@@ -14,3 +14,7 @@
     height: 20rem;
     border-radius: 100%;
 }
+
+.infoTitle {
+    font-weight: 700;
+}

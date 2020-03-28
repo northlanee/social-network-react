@@ -5,6 +5,7 @@ import s from './User.module.css';
 import Userpic from './../../../images/userpic.png';
 import {NavLink} from "react-router-dom";
 import axios from "axios";
+import {followAPI} from "../../../api/api";
 
 const User = ({user, follow, unfollow}) => {
 
@@ -12,7 +13,7 @@ const User = ({user, follow, unfollow}) => {
         axios.post("https://social-network.samuraijs.com/api/1.0/follow/" + user.id, {}, {
             withCredentials: true,
             headers: {
-                "API-KEY": "84dcfc9f-cb21-4575-b560-00b69b280bca"
+                "API-KEY": "a6426442-a76a-4274-89e9-fbfb192a808b"
             }
         }).then(response => {
             if (response.data.resultCode === 0) {
@@ -24,7 +25,7 @@ const User = ({user, follow, unfollow}) => {
         axios.delete("https://social-network.samuraijs.com/api/1.0/follow/" + user.id, {
             withCredentials: true,
             headers: {
-                "API-KEY": "84dcfc9f-cb21-4575-b560-00b69b280bca"
+                "API-KEY": "a6426442-a76a-4274-89e9-fbfb192a808b"
             }
         }).then(response => {
             if (response.data.resultCode === 0) {

@@ -36,7 +36,7 @@ class ProfileContainer extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        profile: state.profileReducer.profile
+        profile: state.profileReducer.profile,
     }
 };
 

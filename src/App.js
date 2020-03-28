@@ -20,7 +20,7 @@ const App = ({store}) => {
                     <main className="main">
                         <Route path="/messages" render={ () => <MessagesContainer /> } />
                         <Route path="/people" render={ () => <UsersContainer /> } />
-                        <Route path="/profile" render={ () => <ProfileContainer /> } />
+                        <Route path="/profile/:userId?" render={ () => <ProfileContainer /> } />
                     </main>
                 </div>
             </div>

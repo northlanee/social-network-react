@@ -15,7 +15,11 @@ import PreLoader from "../common/PreLoader/PreLoader";
 class UsersContainer extends React.Component {
 
     componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`).then(response => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`,
+            {
+                withCredentials: true
+            }
+            ).then(response => {
             this.props.setUsers(response.data.items);
             this.props.setTotalUsersCount(response.data.totalCount);
             this.props.setFetching(false);
@@ -25,7 +29,9 @@ class UsersContainer extends React.Component {
     pageClickHandler = (page) => {
         this.props.setCurrentPage(page);
         this.props.setFetching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${page}`)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${page}`, {
+            withCredentials: true
+        })
             .then(response => {
                 this.props.setUsers(response.data.items);
                 this.props.setFetching(false);
@@ -36,15 +42,7 @@ class UsersContainer extends React.Component {
         return (<>
             {this.props.isFetching ?
                 <PreLoader/> :
-                <Users
-                    users={this.props.users}
-                    totalUsersCount={this.props.totalUsersCount}
-                    pageSize={this.props.pageSize}
-                    currentPage={this.props.currentPage}
-                    pageClickHandler={this.pageClickHandler}
-                    follow={this.props.follow}
-                    unfollow={this.props.unfollow}
-                />}
+                <Users {...this.props} pageClickHandler={this.pageClickHandler} />}
             </>)
     }
 
@@ -56,7 +54,7 @@ const mapStateToProps = (state) => {
         pageSize: state.usersReducer.pageSize,
         totalUsersCount: state.usersReducer.totalUsersCount,
         currentPage: state.usersReducer.currentPage,
-        isFetching: state.usersReducer.isFetching
+        isFetching: state.usersReducer.isFetching,
     }
 };
 //

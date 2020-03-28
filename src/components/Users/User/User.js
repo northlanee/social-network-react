@@ -4,11 +4,34 @@ import s from './User.module.css';
 
 import Userpic from './../../../images/userpic.png';
 import {NavLink} from "react-router-dom";
+import axios from "axios";
 
 const User = ({user, follow, unfollow}) => {
 
-    const followOnClick = () => follow(user.id);
-    const unfollowOnClick = () => unfollow(user.id);
+    const followOnClick = () => {
+        axios.post("https://social-network.samuraijs.com/api/1.0/follow/" + user.id, {}, {
+            withCredentials: true,
+            headers: {
+                "API-KEY": "84dcfc9f-cb21-4575-b560-00b69b280bca"
+            }
+        }).then(response => {
+            if (response.data.resultCode === 0) {
+                follow(user.id);
+            }
+        });
+    };
+    const unfollowOnClick = () => {
+        axios.delete("https://social-network.samuraijs.com/api/1.0/follow/" + user.id, {
+            withCredentials: true,
+            headers: {
+                "API-KEY": "84dcfc9f-cb21-4575-b560-00b69b280bca"
+            }
+        }).then(response => {
+            if (response.data.resultCode === 0) {
+                unfollow(user.id);
+            }
+        });
+    };
 
     const followButton = user.followed
                         ? <button onClick={unfollowOnClick} className={`${s.fButton} ${s.unfollow}`}>Unfollow</button>

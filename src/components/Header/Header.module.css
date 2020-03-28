@@ -11,6 +11,12 @@
     display: flex;
     margin: 0 auto;
     align-items: center;
+    justify-content: space-between;
+}
+
+.logoGroup {
+    display: flex;
+    align-items: center;
 }
 
 .logo {

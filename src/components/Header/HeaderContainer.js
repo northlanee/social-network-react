@@ -1,12 +1,12 @@
 import React, {Component} from "react";
 import Header from "./Header";
-import {getAuthMe} from "../../redux/auth-reducer";
+import {authorize} from "../../redux/auth-reducer";
 import {connect} from "react-redux";
 
 class HeaderContainer extends Component {
 
     componentDidMount() {
-        getAuthMe();
+        this.props.authorize();
     }
 
     render() {
@@ -24,4 +24,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, {getAuthMe})(HeaderContainer);
+export default connect(mapStateToProps, {authorize})(HeaderContainer);

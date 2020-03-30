@@ -41,9 +41,9 @@ export const setUserData = (userData) => ({type: SET_USER_DATA, userData});
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const setUserAuth = (isAuth) => ({type: SET_USER_AUTH, isAuth});
 
-export const getAuthMe = () => {
+export const authorize = () => {
     return (dispatch => {
-        api.getAuthMe().then(data => {
+        return api.getAuthMe().then(data => {
             if (data.resultCode === 0) {
                 dispatch(setUserData(data.data));
                 return data.data.id;
@@ -56,6 +56,6 @@ export const getAuthMe = () => {
                     dispatch(setUserAuth(true));
                 });
             }
-        });
+        })
     })
 };

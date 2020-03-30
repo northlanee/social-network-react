@@ -1,19 +1,16 @@
 import React, {Component} from "react";
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {setProfileInfo} from "../../redux/profile-reducer";
+import {setProfile, setProfileInfo} from "../../redux/profile-reducer";
 import PreLoader from "../common/PreLoader/PreLoader";
 import {withRouter} from "react-router-dom";
-import {getProfile} from "../../api/api";
 
 class ProfileContainer extends Component {
 
     componentDidMount() {
         let id = this.props.match.params.userId;
         if (!id) id = 2;
-        getProfile(id).then(data => {
-            this.props.setProfileInfo(data);
-        });
+        this.props.setProfile(id);
     }
 
     componentWillUnmount() {
@@ -39,4 +36,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, {setProfileInfo})(withRouter(ProfileContainer));
+export default connect(mapStateToProps, {setProfileInfo, setProfile})(withRouter(ProfileContainer));

@@ -4,34 +4,14 @@ import s from './User.module.css';
 
 import Userpic from './../../../images/userpic.png';
 import {NavLink} from "react-router-dom";
-import axios from "axios";
-import {followAPI} from "../../../api/api";
 
-const User = ({user, follow, unfollow}) => {
+const User = ({user, acceptFollow, acceptUnfollow}) => {
 
     const followOnClick = () => {
-        axios.post("https://social-network.samuraijs.com/api/1.0/follow/" + user.id, {}, {
-            withCredentials: true,
-            headers: {
-                "API-KEY": "a6426442-a76a-4274-89e9-fbfb192a808b"
-            }
-        }).then(response => {
-            if (response.data.resultCode === 0) {
-                follow(user.id);
-            }
-        });
+        acceptFollow(user.id);
     };
     const unfollowOnClick = () => {
-        axios.delete("https://social-network.samuraijs.com/api/1.0/follow/" + user.id, {
-            withCredentials: true,
-            headers: {
-                "API-KEY": "a6426442-a76a-4274-89e9-fbfb192a808b"
-            }
-        }).then(response => {
-            if (response.data.resultCode === 0) {
-                unfollow(user.id);
-            }
-        });
+        acceptUnfollow(user.id);
     };
 
     const followButton = user.followed

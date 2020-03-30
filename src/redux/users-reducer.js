@@ -1,3 +1,5 @@
+import {api} from "../api/api";
+
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS';
@@ -10,7 +12,7 @@ const initialState = {
     pageSize: 5,
     totalUsersCount: 0,
     currentPage: 1,
-    isFetching: true
+    isFetching: false
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -64,5 +66,37 @@ export const setUsers = (users) => ({type: SET_USERS, users});
 export const setCurrentPage = (page) => ({type: SET_CURRENT_PAGE, page});
 export const setTotalUsersCount = (count) => ({type: SET_TOTAL_USERS_COUNT, count});
 export const setFetching = (isFetching) => ({type: SET_FETCHING, isFetching});
+
+export const getUsers = (pageSize, currentPage) => {
+    return ((dispatch) => {
+        dispatch(setCurrentPage(currentPage));
+        dispatch(setFetching(true));
+        api.getUsers(pageSize, currentPage).then(data => {
+            dispatch(setUsers(data.items));
+            dispatch(setTotalUsersCount(data.totalCount));
+            dispatch(setFetching(false));
+        });
+    })
+};
+
+export const acceptFollow = (id) => {
+    return ((dispatch) => {
+        api.followAPI(id).then(data => {
+            if (data.resultCode === 0) {
+                dispatch(follow(id));
+            }
+        });
+    })
+};
+
+export const acceptUnfollow = (id) => {
+    return ((dispatch) => {
+        api.unfollowAPI(id).then(data => {
+            if (data.resultCode === 0) {
+                dispatch(unfollow(id));
+            }
+        });
+    })
+};
 
 export default usersReducer;

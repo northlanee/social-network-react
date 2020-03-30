@@ -6,6 +6,7 @@ import MessagesWrapper from "./MessagesWrapper/MessagesWrapper";
 import NewMessage from "./NewMessage/NewMessage";
 
 const Messages = ({messages, dialogs, newMessageValue, messageChange, addMessage}) => {
+
     return (
         <div className={s.messages}>
             <div className={s.messagesContainer}>

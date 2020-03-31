@@ -4,7 +4,7 @@ import Poster from './../../../images/poster.jpg';
 import s from './ProfileInfo.module.css';
 import ProfileStatus from "../ProfileStatus/ProfileStatus";
 
-const ProfileInfo = ({profile}) => {
+const ProfileInfo = ({profile, status, updateStatus}) => {
 
     let jobDescription;
     if (profile.lookingForAJob) {
@@ -21,7 +21,8 @@ const ProfileInfo = ({profile}) => {
                 <img src={profile.photos.large || Poster} alt="poster"/>
             </div>
             <div className="info">
-                <ProfileStatus />
+                <ProfileStatus status={status} updateStatus={updateStatus} />
+                <hr/>
                 <div className={s.infoPiece}>
                     <span className={s.infoTitle}>Username: </span>
                     <span className={s.infoContent}>{profile.fullName}</span>

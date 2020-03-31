@@ -38,6 +38,21 @@ export const api = {
             .then(response => {
                 return response.data;
             });
+    },
+
+    getProfileStatus(userId) {
+        return instance.get('profile/status/' + userId)
+            .then(res => {
+                return res.data;
+            })
+    },
+
+    setProfileStatus(status) {
+        return instance.put('profile/status', {
+            status
+        }).then(res => {
+            return res.data;
+        })
     }
 
 };

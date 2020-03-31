@@ -1,9 +1,10 @@
 import React from "react";
 import Poster from './../../../images/poster.jpg';
 
-import s from './User.module.css';
+import s from './ProfileInfo.module.css';
+import ProfileStatus from "../ProfileStatus/ProfileStatus";
 
-const User = ({profile}) => {
+const ProfileInfo = ({profile}) => {
 
     let jobDescription;
     if (profile.lookingForAJob) {
@@ -20,6 +21,7 @@ const User = ({profile}) => {
                 <img src={profile.photos.large || Poster} alt="poster"/>
             </div>
             <div className="info">
+                <ProfileStatus />
                 <div className={s.infoPiece}>
                     <span className={s.infoTitle}>Username: </span>
                     <span className={s.infoContent}>{profile.fullName}</span>
@@ -38,4 +40,4 @@ const User = ({profile}) => {
     );
 };
 
-export default User;
+export default ProfileInfo;

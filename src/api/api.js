@@ -53,6 +53,16 @@ export const api = {
         }).then(res => {
             return res.data;
         })
+    },
+
+    login(login, password, rememberMe) {
+        return instance.post('auth/login', {
+            email: login,
+            password: password,
+            rememberMe: rememberMe
+        }).then(res => {
+            return res.data;
+        })
     }
 
 };

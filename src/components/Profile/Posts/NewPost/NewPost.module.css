@@ -5,6 +5,10 @@
     margin-bottom: 1rem;
 }
 
+.postForm {
+    width: 100%;
+}
+
 .postField {
     width: 100%;
     border-radius: 0.5rem;

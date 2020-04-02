@@ -5,7 +5,7 @@ import s from './Posts.module.css';
 import Post from "./Post/Post";
 import NewPost from "./NewPost/NewPost";
 
-const Posts = ({posts, newPostValue, newPostChange, addPost}) => {
+const Posts = ({posts, addPostHandler}) => {
 
     let postsElements = posts.map(
         d => <li key={d.id}><Post username={d.username} date={d.date} message={d.message} /></li>
@@ -14,7 +14,7 @@ const Posts = ({posts, newPostValue, newPostChange, addPost}) => {
     return (
         <div className="posts">
             <h2>My posts</h2>
-            <NewPost newPostValue={newPostValue} newPostChange={newPostChange} addPost={addPost} />
+            <NewPost addPostHandler={addPostHandler} />
             <ul className={s.postsList}>
                 { postsElements }
             </ul>

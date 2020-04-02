@@ -10,7 +10,6 @@ const initialState = {
         { id: 1, username: 'Username', date: '20.3.2020', message: 'Hi, how are you?' },
         { id: 2, username: 'Username', date: '20.3.2020', message: 'Do you learn React?' }
     ],
-    newPostValue: '',
     profile: null,
     status: ''
 };
@@ -24,12 +23,11 @@ const profileReducer = (state = initialState, action) => {
                 id: 3,
                 username: 'Username',
                 date: `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`,
-                message: state.newPostValue
+                message: action.post
             };
             return {
                 ...state,
-                posts: [...state.posts, newPost],
-                newPostValue: ''
+                posts: [...state.posts, newPost]
             };
         case UPDATE_NEW_POST_TEXT:
             return {
@@ -52,8 +50,7 @@ const profileReducer = (state = initialState, action) => {
 
 };
 
-export const addPostActionCreator = () => ({type: ADD_POST});
-export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
+export const addPostHandler = (post) => ({type: ADD_POST, post});
 export const setProfileInfo = (profile) => ({type: SET_PROFILE_INFO, profile});
 const setStatus = status => ({type: SET_STATUS, status});
 

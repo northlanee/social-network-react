@@ -13,7 +13,6 @@ const Login = ({isAuth, isFetching, login}) => {
 
     if (isAuth) return <Redirect to='/profile'/>;
     if (isFetching) return <PreLoader/>;
-    debugger
     return (
         <div>
             <h1>Login</h1>

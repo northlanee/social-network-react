@@ -1,0 +1,15 @@
+.field {
+    width: 100%;
+    border-radius: 0.5rem;
+    resize: none;
+    border: 1px solid slategrey;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.error {
+    display: block;
+    color: red;
+    margin-bottom: 0.5rem;
+}

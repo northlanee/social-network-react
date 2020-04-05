@@ -2,7 +2,6 @@ const ADD_MESSAGE = 'ADD-MESSAGE';
 const MESSAGE_CHANGE = 'MESSAGE-CHANGE';
 
 const initialState = {
-    newMessageValue: '',
     messages: [
         { id: 1, username: 'Petya', time: '18:22', date: '20.3.2020', message: 'Hi. How are you?' },
         { id: 2, username: 'You', time: '18:24', date: '20.3.2020', message: 'Hi. I\'m fine' },
@@ -18,11 +17,6 @@ const initialState = {
 const messagesReducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case MESSAGE_CHANGE:
-            return {
-                ...state,
-                newMessageValue: action.newText
-            };
         case ADD_MESSAGE:
             const d = new Date();
             const newMessage = {
@@ -30,12 +24,11 @@ const messagesReducer = (state = initialState, action) => {
                 username: 'You',
                 time: `${d.getHours()}:${d.getMinutes()}`,
                 date: `${d.getDate()}.${d.getMonth() + 1}.${d.getFullYear()}`,
-                message: state.newMessageValue
+                message: action.message
             };
             return {
                 ...state,
-                messages: [...state.messages, newMessage],
-                newMessageValue: ''
+                messages: [...state.messages, newMessage]
             };
         default:
             return state;
@@ -43,16 +36,10 @@ const messagesReducer = (state = initialState, action) => {
 
 };
 
-export const addMessage = () => {
+export const addMessage = (message) => {
     return {
-        type: ADD_MESSAGE
-    }
-};
-
-export const messageChange = (text) => {
-    return {
-        type: MESSAGE_CHANGE,
-        newText: text
+        type: ADD_MESSAGE,
+        message
     }
 };
 

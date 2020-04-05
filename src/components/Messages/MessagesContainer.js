@@ -7,12 +7,11 @@ import {compose} from "redux";
 const mapStateToProps = (state) => {
     return {
         messages: state.messagesReducer.messages,
-        dialogs: state.messagesReducer.dialogs,
-        newMessageValue: state.messagesReducer.newMessageValue
+        dialogs: state.messagesReducer.dialogs
     }
 };
 
 export default compose(
-    connect(mapStateToProps, {messageChange, addMessage}),
+    connect(mapStateToProps, {addMessage}),
     withAuthRedirect
 )(Messages);

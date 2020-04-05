@@ -5,12 +5,12 @@ import Dialogs from "./Dialogs/Dialogs";
 import MessagesWrapper from "./MessagesWrapper/MessagesWrapper";
 import NewMessage from "./NewMessage/NewMessage";
 
-const Messages = ({messages, dialogs, newMessageValue, messageChange, addMessage}) => {
+const Messages = ({messages, dialogs, addMessage}) => {
 
     return (
         <div className={s.messages}>
             <div className={s.messagesContainer}>
-                <NewMessage newMessageValue={newMessageValue} messageChange={messageChange} addMessage={addMessage} />
+                <NewMessage addMessage={addMessage} />
                 <MessagesWrapper messages={messages} />
             </div>
 

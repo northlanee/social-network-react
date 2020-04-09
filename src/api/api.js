@@ -55,7 +55,7 @@ export const api = {
         })
     },
 
-    login(login, password, rememberMe) {
+    login(login, password, rememberMe = false) {
         return instance.post('auth/login', {
             email: login,
             password: password,
@@ -63,6 +63,10 @@ export const api = {
         }).then(res => {
             return res.data;
         })
+    },
+
+    logout() {
+        return instance.delete('auth/login');
     }
 
 };

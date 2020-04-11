@@ -11,7 +11,7 @@ class ProfileContainer extends Component {
 
     componentDidMount() {
         let id = this.props.match.params.userId;
-        if (!id) id = 2;
+        if (!id) id = this.props.id;
         this.props.setProfile(id);
         this.props.getStatus(id);
     }
@@ -36,7 +36,8 @@ const mapStateToProps = (state) => {
     return {
         profile: state.profileReducer.profile,
         isAuth: state.auth.isAuth,
-        status: state.profileReducer.status
+        status: state.profileReducer.status,
+        id: state.auth.id
     }
 };
 

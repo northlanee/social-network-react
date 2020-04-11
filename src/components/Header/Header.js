@@ -4,13 +4,13 @@ import Userpic from './../../images/userpic.png';
 
 import s from './Header.module.css';
 
-const Header = ({isAuth, userData, profile}) => {
+const Header = ({isAuth, login}) => {
 
     let loginBox = 'log in';
 
     if (isAuth) {
         loginBox = <div className={s.authBox}>
-            {userData.login} <span className={s.fullName}>({profile.fullName})</span>
+            {login}
         </div>;
     }
     return (

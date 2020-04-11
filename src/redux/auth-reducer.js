@@ -2,12 +2,12 @@ import {api} from "../api/api";
 import {stopSubmit} from "redux-form";
 
 const SET_USER_DATA = 'SET_USER_DATA';
-const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_USER_AUTH = 'SET_USER_AUTH';
 const SET_FETCHING = 'SET_FETCHING';
 
 const initialState = {
-    userData: null,
+    id: null,
+    login: null,
     isAuth: false,
     profile: null
 };
@@ -18,18 +18,13 @@ const authReducer = (state = initialState, action) => {
         case SET_USER_DATA:
             return {
                 ...state,
-                userData: action.userData
+                id: action.id,
+                login: action.login
             };
         case SET_USER_AUTH:
             return {
                 ...state,
                 isAuth: action.isAuth
-            };
-
-        case SET_USER_PROFILE:
-            return {
-                ...state,
-                profile: action.profile
             };
         case SET_FETCHING:
             return {
@@ -44,8 +39,7 @@ const authReducer = (state = initialState, action) => {
 
 export default authReducer;
 
-export const setUserData = (userData) => ({type: SET_USER_DATA, userData});
-export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
+export const setUserData = (userData) => ({type: SET_USER_DATA, id: userData.id, login: userData.login});
 export const setUserAuth = (isAuth) => ({type: SET_USER_AUTH, isAuth});
 
 export const login = ({login, password, rememberMe}) => {
@@ -72,12 +66,7 @@ export const authorize = () => {
             }
             return null;
         }).then(id => {
-            if (id) {
-                api.getProfile(id).then(data => {
-                    dispatch(setUserProfile(data));
-                    dispatch(setUserAuth(true));
-                });
-            }
+            if (id) dispatch(setUserAuth(true));
         })
     })
 };
